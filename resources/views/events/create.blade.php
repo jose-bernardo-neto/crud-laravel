@@ -2,6 +2,15 @@
 @section('title','Criar evento')
 @section('content')
 <div id="events-create-container" class="col-md-6 offset-md-3">
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    </div> 
+    @endif
     <h1>Crie um evento</h1>
     <form action="/events" method="POST" enctype="multipart/form-data">
         @csrf

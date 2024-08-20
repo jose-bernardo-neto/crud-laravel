@@ -109,7 +109,7 @@ class EventController extends Controller
     public function joinEvent($id)
     {
         $user = auth()->user();
-        $user->eventsAsParticipant->attach($id);
+        $user->eventsAsParticipant()->attach($id);
 
         return redirect('/dashboard')->with('msg', 'Sua presenca foi confirmada no evento ');
     }
@@ -117,7 +117,7 @@ class EventController extends Controller
     public function leaveEvent($id)
     {
         $user = auth()->user();
-        $user->eventsAsParticipant->detach($id);
+        $user->eventsAsParticipant()->detach($id);
 
         return redirect('/dashboard')->with('msg', 'Voce saiu do evento com sucesso!');
     }
