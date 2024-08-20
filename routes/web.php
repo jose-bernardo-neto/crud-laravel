@@ -3,13 +3,29 @@
 use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/',[EventController::class,'index'])->name('events.index');
-Route::get('/events/create',[EventController::class, 'create'])->name('events.create');
-Route::get('/events/{id}',[EventController::class, 'show'])->name('events.show');
-Route::post('/events',[EventController::class,'store'])->name('events.store');
+Route::get('/',[EventController::class,'index'])
+ ->name('events.index');
 
-Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+Route::get('/events/create',[EventController::class, 'create'])
+ ->middleware('auth')
+ ->name('events.create');
+
+Route::get('/events/{id}',[EventController::class, 'show'])->name('events.show');
+
+Route::post('/events',[EventController::class,'store'])
+ ->name('events.store');
+
+Route::delete('/events/{id}',[EventController::class, 'destroy'])
+ ->name('events.destroy');
+
+Route::get('/events/edit/{id}',[EventController::class, 'edit'])
+ ->middleware('auth')
+ ->name('events.edit');
+
+Route::put('events/update/{id}',[EventController::class, 'update'])
+ ->middleware('auth')
+ ->name('events.update');
+
+Route::get('/dashboard', [EventController::class, 'dashboard'])
+ ->middleware('auth')
+ ->name('events.dashboard');

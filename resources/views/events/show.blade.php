@@ -12,7 +12,7 @@
             <h1>{{ $event->title }}</h1>
             <p class="event-city">{{ $event->city }}</p>
             <p class="events-participants">X Participantes</p>
-            <p class="event-owner">Dono do evento</p>
+            <p class="event-owner">{{ $eventOwner['name'] }}</p>
             <a href="#" class="btn btn-warning" id="event-submit">Confirmar presenca</a>
             <h3>O evento conta com:</h3>
             <ul id="items-list">

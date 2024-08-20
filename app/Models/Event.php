@@ -16,7 +16,8 @@ class Event extends Model
         'private',
         'image',
         'items',
-        'date'
+        'date',
+        'user_id'
     ];
 
     protected $casts = [
