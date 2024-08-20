@@ -19,7 +19,7 @@ class PostFactory extends Factory
         return [
             'name' => fake()->sentence(2),
             'description' => fake()->sentence(5),
-            'category'=> fake()->word(1)
+            'category' => fake()->word(1),
         ];
     }
 }

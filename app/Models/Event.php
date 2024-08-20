@@ -5,7 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Event extends Model{
+class Event extends Model
+{
     use HasFactory;
 
     protected $fillable = [
@@ -16,21 +17,22 @@ class Event extends Model{
         'image',
         'items',
         'date',
-        'user_id'
+        'user_id',
     ];
 
     protected $casts = [
-        "items" => 'array'
+        'items' => 'array',
     ];
-
 
     protected $dates = ['date'];
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo('App\Models\User');
     }
 
-    public function users(){
+    public function users()
+    {
         return $this->belongsToMany('App\Models\User');
     }
 }
