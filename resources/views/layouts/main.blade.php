@@ -35,7 +35,7 @@
                                 onclick="
                                     event.preventDefault();
                                     this.closest('form').submit()"
-                             >Sair</a>
+                             >Sair({{ auth()->user()->name}})</a>
                             </form>
                         </li>
                         @endauth
@@ -56,7 +56,7 @@
             <div class="container-fluid">
                 <div class="row">
                     @if (session('msg'))
-                    <div class="alert alert-success">
+                    <div class="alert alert-info">
                         <p class="text-center">{{ session('msg') }}</p>
                     </div>
                     @endif
